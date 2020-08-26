@@ -1,0 +1,100 @@
+@import "./_mixin.scss";
+
+body {
+    margin: 0;
+    padding:0 0 100px 0;
+    background-color: #4ec517ec;
+}
+.bandeau_haut {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(#6ed85b, #1e750e,#1e620d);
+    .logo {
+        width: 80px;
+        height: 80px;
+        margin: 20px 20px 20px 20px;
+    }
+    .title {
+        font-size: 2.5em;
+        font-family: 'Permanent Marker', cursive;
+        margin: 10px 20px 10px 20px;
+        @include soulignement(lightgrey);
+    }
+    .accueil {
+        font-size: 1.5em;
+        font-family: 'Permanent Marker', cursive;
+        margin: 10px 20px 10px 20px;
+        @include soulignement(lightgrey);
+    }
+    .fas {
+        font-size: 1.2em;
+        margin: 10px 10px 10px 10px;
+    }
+}
+.container{
+    background-color: rgba(0, 0, 0, 0.253);
+    width: 100%;
+    .titre {
+        font-family: 'Caveat', cursive;
+        font-size: 2.5em;
+    }
+    .presentation {
+        font-family: 'Caveat', cursive;
+        font-size: 1.8em;
+    }
+}
+.cartes, .articleChoisi, .commander {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Caveat', cursive;
+    .card{
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0 10px 0;
+        border-radius:100px 0 100px 0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+.accueil-prev{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    .articleChoisi {
+
+    }
+    .add-cart {
+        border-radius : 30px 0 30px 0;
+        
+    }
+}
+
+.main-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    .wiggle {
+        font-family: 'Caveat', cursive;
+        font-size: 1.8em;
+        @include shake;
+    }
+}
+input:valid {
+    color: green;
+    border: 1px green solid;
+}
+
+input:invalid {
+    color: red;
+    border: 1px red solid;
+}

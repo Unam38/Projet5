@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="author" content="Emmanuel Daubeuf | Développeur Web">
+        <meta name="description" content="Fiche article, description de nos produits">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css"/>
+
+        <title>Orinoco Meubles | Panier</title>
+    </head>
+    <body>
+        <header class="container col-12 bg-success bandeau_haut">
+            <nav class="row navbar navbar-expand-md">
+                <img src="../images/chene 2.svg" class="logo" alt="logo de l'entreprise"/>
+                <a class="navbar-brand text-light text-center title" href="index.html" title="accueil">Orinoco Meubles</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="far fa-caret-square-down text-light"></i></span>
+                </button>
+                <div id="navbarContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link text-light accueil" href="index.html" title="accueil">Accueil<i class="fas fa-home"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light accueil cart" id="panier" href="panier.html" title="panier"><i class="fas fa-shopping-cart"></i>Panier <span>0</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light accueil" href="mailto:contact@orinico_meubles.fr" title="contact">Ecrivez-nous<i class="fas fa-envelope"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <h1 class="jumbotron-success col-12 text-center text-light">Votre panier</h1>
+
+        <div class="product-container">
+            
+        </div>
+        <div class="panier-list" id="panier-list">
+            <p class="panier-vide">Vous n'avez pas encore fait votre choix</br>
+            <a href="./index.html">Regardez notre sélection</a></p>
+        </div>
+
+       
+        <section class="container">
+            <form class="accueil-prev__carte-produit" method="POST" id="saisieFormulaire">
+                <div class="form-group">
+                    <label for="name">* Nom :</label>
+                    <input type="text" id="name" pattern="[a-zA-ZÀ-ÿ]{1,30}" name="user_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="firstname">* Prénom :</label>
+                    <input type="text" id="firstname" pattern="[a-zA-ZÀ-ÿ]{1,30}" name="user_firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="mail">* e-mail :</label>
+                    <input type="email" id="mail" name="user_mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="adress">* Adresse :</label>
+                    <textarea type="text" id="adress" name="user_adress" minlength="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="codePostal">* Code postal :</label>
+                    <input type="text" id="codePostal" pattern="[0-9]{5}" name="user_codePostal" required>
+                </div>
+                <div class="form-group">
+                    <label for="ville">* Ville :</label>
+                    <input type="text" id="city" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_city" required>
+                </div>
+                <div>
+                    <button type="submit" class="next__bouton" id='acheter'>Acheter</button>
+                </div>
+                <div id="validation"></div>
+            </form>
+        </section>
+
+        <footer class="row col-12 bg-success main-footer">
+            <a class="wiggle col-6 text-center nav-link text-light" href="mailto:contact@orinico_meubles.fr" target="_blank"><i class="fas fa-envelope"></i>Contactez-nous</a>
+            <a class="wiggle col-6 text-center nav-link text-light" href="panier.html">Mon panier<i class="fas fa-shopping-cart"></i></a>
+        </footer>
+        
+    
+        <!-- Optional JavaScript -->
+        <script src="https://kit.fontawesome.com/f6649790d8.js" crossorigin="anonymous"></script>
+        <script src="./js/utils.js"></script>
+        <script src="./js/article.js"></script>
+        <script src="./js/panier.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>

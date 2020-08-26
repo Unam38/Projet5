@@ -24,3 +24,26 @@ function renderFurniture (meuble, type) {
         </div>`;
     }
 }
+function displayQtyProduct(){
+    if (! has('panier')) {
+        return 0;
+    }
+    return get('panier').length;
+}
+document.getElementById('count').textContent = displayQtyProduct();
+
+function totalCost() {
+    //récupérer le prix de l'article 1
+    //récupérer le prix de l'article 2 ...
+
+    //additionner les prix
+    //afficher le total dans le dom
+}
+
+function show(id) {
+    document.getElementById(id).style.display = 'block';
+}
+
+function hide(id){
+    document.getElementById(id).style.display = 'none';
+}

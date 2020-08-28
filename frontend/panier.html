@@ -9,15 +9,15 @@
         <!-- Bootstrap CSS -->
         <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="./css/style.css"/>
 
-        <title>Orinoco Meubles | Panier</title>
+        <title>Ori-Meubles | Panier</title>
     </head>
     <body>
         <header class="container col-12 bg-success bandeau_haut">
             <nav class="row navbar navbar-expand-md">
                 <img src="../images/chene 2.svg" class="logo" alt="logo de l'entreprise"/>
-                <a class="navbar-brand text-light text-center title" href="index.html" title="accueil">Orinoco Meubles</a>
+                <a class="navbar-brand text-light text-center title" href="index.html" title="accueil">Ori-Meubles</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"><i class="far fa-caret-square-down text-light"></i></span>
                 </button>
@@ -36,16 +36,16 @@
                 </div>
             </nav>
         </header>
-        <h1 class="jumbotron-success col-12 text-center text-light">Votre panier</h1>
+        <h1 class="votre-panier jumbotron-success col-12 text-center">Votre panier :</h1>
         <div class="product-container">   
-            <div id="panier-plein">
+            <div id="panier-plein" class="panier-plein">
                 ici seront les produits
             </div>
             <div>Prix total : <span id="prix-total">0</span> €</div>
             <button id="vider-panier">Vider le panier</button>
             <div class="panier-list" id="panier-vide">
                 <p class="panier-vide">Vous n'avez pas encore fait votre choix</br>
-                <a href="./index.html">Regardez notre sélection</a></p>
+                <a class="panier-vide" href="./index.html">Regardez notre sélection</a></p>
             </div>
         </div>
         <section class="container" id="formulaire">
@@ -75,8 +75,11 @@
                     <input type="text" id="city" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_city" required>
                 </div>
                 <div>
-                    <button type="submit" class="next__bouton" id='acheter'>Acheter</button>
-                </div>
+                    <button class="valid btn btn-warning" id="valid">Validez vos informations</button>
+                    <a href="./confirmation.html" title="page de confirmation de commande">
+                        <button class="acheter btn btn-warning" id="acheter">Acheter</button>
+                    </a>
+                    </div>
                 <div id="validation"></div>
             </form>
         </section>
@@ -92,6 +95,7 @@
         <script type="text/javascript" src="js/storage.js"></script>
         <script type="text/javascript" src="js/utils.js"></script>  
         <script type="text/javascript" src="js/panier.js"></script>
+        <script type="text/javascript" src="js/validation.js"></script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

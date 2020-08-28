@@ -21,17 +21,17 @@ if (has('panier')){
         for (let i = 0; i < meubles.length; i++){
             let meuble = meubles[i];
             let id = meuble._id;
+            let prix = meuble.price;
             if (panierIds.includes(id)){
                 html += renderFurniture(meuble, 'single')
+                let prixTotal = 0
+                meubles.forEach(prix => {
+                    prixTotal = prixTotal + prix;
+                });
+                console.log(prixTotal);
             }
         }
         document.getElementById('panier-plein').innerHTML = html;
-        
-        for (let p=0; p<meubles.length; p++){
-            let meuble = meubles[p];
-            let prix = meuble.price;
-            console.log(prix);
-        }
     })
     document.getElementById('vider-panier').addEventListener('click', () => {
         clear();
@@ -39,3 +39,6 @@ if (has('panier')){
     })
 }
 
+/*function getPrice(){
+
+}*/

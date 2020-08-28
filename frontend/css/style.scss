@@ -45,31 +45,63 @@ body {
         font-size: 1.8em;
     }
 }
-.cartes, .articleChoisi, .commander {
+.cartes, .articleChoisi, .commander, .panier-plein  {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
     font-family: 'Caveat', cursive;
+    padding: 0;
     .card{
+        background: linear-gradient(#6ed85b, #1e750e,#1e620d);
+        display : flex;
+        width: 100%;
         justify-content: center;
         align-items: center;
         padding: 10px 0 10px 0;
         border-radius:100px 0 100px 0;
         margin-top: 20px;
         margin-bottom: 20px;
+        .commander{
+            border-radius: 30px 30px 30px 30px;
+            background-color: #6ed85b;
+            padding: 10px 10px 10px 10px;
+            font-size: 1.5em;
+        }
+        .commander:hover{
+            background-color:gold;
+            text-decoration: none;
+        }
     }
 }
 .accueil-prev{
     display : flex;
     justify-content: center;
     align-items: center;
-    .articleChoisi {
-
-    }
     .add-cart {
         border-radius : 30px 0 30px 0;
-        
+    }
+    
+}
+.votre-panier{
+    font-family: 'Permanent Marker', cursive;
+    color: lightgrey;
+    font-size: 2.5em;
+}
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.panier-vide {
+    font-size: 2em;
+    font-family: "caveat", cursive;
+    color: lightgrey;
+    text-decoration: none;
+    a:hover{
+        color:green;
+        text-decoration: none;
     }
 }
 
@@ -91,10 +123,10 @@ body {
 }
 input:valid {
     color: green;
-    border: 1px green solid;
+    border: 2px green solid;
 }
 
 input:invalid {
     color: red;
-    border: 1px red solid;
+    border: 2px red solid;
 }

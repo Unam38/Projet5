@@ -75,7 +75,7 @@ body {
   font-size: 1.8em;
 }
 
-.cartes, .articleChoisi, .commander {
+.cartes, .articleChoisi, .commander, .panier-plein {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,9 +89,16 @@ body {
       -ms-flex-align: center;
           align-items: center;
   font-family: 'Caveat', cursive;
+  padding: 0;
 }
 
-.cartes .card, .articleChoisi .card, .commander .card {
+.cartes .card, .articleChoisi .card, .commander .card, .panier-plein .card {
+  background: -webkit-gradient(linear, left top, left bottom, from(#6ed85b), color-stop(#1e750e), to(#1e620d));
+  background: linear-gradient(#6ed85b, #1e750e, #1e620d);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -102,6 +109,18 @@ body {
   border-radius: 100px 0 100px 0;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.cartes .card .commander, .articleChoisi .card .commander, .commander .card .commander, .panier-plein .card .commander {
+  border-radius: 30px 30px 30px 30px;
+  background-color: #6ed85b;
+  padding: 10px 10px 10px 10px;
+  font-size: 1.5em;
+}
+
+.cartes .card .commander:hover, .articleChoisi .card .commander:hover, .commander .card .commander:hover, .panier-plein .card .commander:hover {
+  background-color: gold;
+  text-decoration: none;
 }
 
 .accueil-prev {
@@ -118,6 +137,40 @@ body {
 
 .accueil-prev .add-cart {
   border-radius: 30px 0 30px 0;
+}
+
+.votre-panier {
+  font-family: 'Permanent Marker', cursive;
+  color: lightgrey;
+  font-size: 2.5em;
+}
+
+.product-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.panier-vide {
+  font-size: 2em;
+  font-family: "caveat", cursive;
+  color: lightgrey;
+  text-decoration: none;
+}
+
+.panier-vide a:hover {
+  color: green;
+  text-decoration: none;
 }
 
 .main-footer {
@@ -246,11 +299,11 @@ body {
 
 input:valid {
   color: green;
-  border: 1px green solid;
+  border: 2px green solid;
 }
 
 input:invalid {
   color: red;
-  border: 1px red solid;
+  border: 2px red solid;
 }
 /*# sourceMappingURL=style.css.map */

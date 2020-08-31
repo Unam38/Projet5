@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0 0 100px 0;
-  background-color: #4ec517ec;
+  background: -webkit-gradient(linear, left top, left bottom, from(#6ed85b), color-stop(#1e750e), to(#1e620d));
+  background: linear-gradient(#6ed85b, #1e750e, #1e620d);
 }
 
 .bandeau_haut {
@@ -145,6 +146,18 @@ body {
   font-size: 2.5em;
 }
 
+.prix-total {
+  font-family: 'caveat', cursive;
+  font-size: 1.5em;
+  color: lightgrey;
+  font-weight: bold;
+  border: 2px solid lightgrey;
+  -webkit-box-shadow: 5px 5px gold;
+          box-shadow: 5px 5px gold;
+  margin: 10px;
+  padding: 10px;
+}
+
 .product-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -161,16 +174,49 @@ body {
           justify-content: center;
 }
 
-.panier-vide {
+.product-container .panier-plein {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product-container .panier-vide {
   font-size: 2em;
   font-family: "caveat", cursive;
   color: lightgrey;
   text-decoration: none;
 }
 
-.panier-vide a:hover {
+.product-container .panier-vide a:hover {
   color: green;
   text-decoration: none;
+}
+
+#formulaire {
+  color: lightgrey;
+  font-family: 'caveat', cursive;
+  font-size: 1.5em;
+  padding: 20px 20px 20px 40px;
+}
+
+#formulaire .form-group {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#formulaire label {
+  margin-right: 20px;
 }
 
 .main-footer {
@@ -191,6 +237,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#6ed85b), color-stop(#1e750e), to(#1e620d));
+  background: linear-gradient(#6ed85b, #1e750e, #1e620d);
 }
 
 .main-footer .wiggle {
@@ -299,11 +347,11 @@ body {
 
 input:valid {
   color: green;
-  border: 2px green solid;
+  border: 3px green solid;
 }
 
 input:invalid {
   color: red;
-  border: 2px red solid;
+  border: 3px red solid;
 }
 /*# sourceMappingURL=style.css.map */

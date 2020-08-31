@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding:0 0 100px 0;
-    background-color: #4ec517ec;
+    background: linear-gradient(#6ed85b, #1e750e,#1e620d);
 }
 .bandeau_haut {
     display: flex;
@@ -88,23 +88,50 @@ body {
     color: lightgrey;
     font-size: 2.5em;
 }
+.prix-total {
+    font-family : 'caveat', cursive;
+    font-size : 1.5em;
+    color: lightgrey;
+    font-weight: bold;
+    border: 2px solid lightgrey;
+    box-shadow: 5px 5px gold;
+    margin: 10px;
+    padding: 10px;
+}
 .product-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.panier-vide {
-    font-size: 2em;
-    font-family: "caveat", cursive;
-    color: lightgrey;
-    text-decoration: none;
-    a:hover{
-        color:green;
+    .panier-plein{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .panier-vide {
+        font-size: 2em;
+        font-family: "caveat", cursive;
+        color: lightgrey;
         text-decoration: none;
+        a:hover{
+            color:green;
+            text-decoration: none;
+        }
     }
 }
-
+#formulaire {
+    color: lightgrey;
+    font-family: 'caveat', cursive;
+    font-size: 1.5em;
+    padding: 20px 20px 20px 40px;
+    .form-group{
+        justify-content: space-between;
+    }
+    label{
+        margin-right: 20px;
+    }
+}
 .main-footer {
     position: fixed;
     bottom: 0;
@@ -115,6 +142,7 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    background: linear-gradient(#6ed85b, #1e750e,#1e620d);
     .wiggle {
         font-family: 'Caveat', cursive;
         font-size: 1.8em;
@@ -123,10 +151,10 @@ body {
 }
 input:valid {
     color: green;
-    border: 2px green solid;
+    border: 3px green solid;
 }
 
 input:invalid {
     color: red;
-    border: 2px red solid;
+    border: 3px red solid;
 }

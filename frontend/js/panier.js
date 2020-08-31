@@ -18,18 +18,19 @@ if (has('panier')){
     .then(meubles => {
         let panierIds = get('panier');
         let html='';
+        let prixTotal = 0;
         for (let i = 0; i < meubles.length; i++){
             let meuble = meubles[i];
             let id = meuble._id;
-            let prix = meuble.price;
             if (panierIds.includes(id)){
                 html += renderFurniture(meuble, 'single')
-                let prixTotal = 0
-                meubles.forEach(prix => {
-                    prixTotal = prixTotal + prix;
-                });
-                console.log(prixTotal);
+                //pour chaque meuble récupère le prix
+                let price = meuble.price;
+                //ajoute le prix au prixTotal
+                prixTotal = prixTotal + price;
             }
+            console.log(prixTotal);
+            document.getElementById('prix-total').innerHTML = prixTotal;
         }
         document.getElementById('panier-plein').innerHTML = html;
     })
@@ -38,7 +39,3 @@ if (has('panier')){
         location.reload();
     })
 }
-
-/*function getPrice(){
-
-}*/

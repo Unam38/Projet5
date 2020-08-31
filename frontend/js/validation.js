@@ -15,15 +15,17 @@ if (! localStorage.getItem('coordonnees')){
 } else {
     show('acheter');
     let numCommande = getNumCommande(100);
-    console.log(numCommande);
+    //console.log(numCommande);
     coordonnees = get('coordonnees');
     console.log(coordonnees);
     document.getElementById('acheter').addEventListener('click', () =>{
-        let commande = "commande numéro"+numCommande + has('coordonnees') + has('panier');
+        let commande = "commande numéro "+ numCommande + has('coordonnees') + has('panier');
         console.log(commande);
     // post la variable vers le backend
+    
     })
 }
+document.getElementById('recap').innerHTML = renderRecap();
 
 
 function getValue(val){
@@ -32,4 +34,9 @@ function getValue(val){
 
 function getNumCommande(max) {
     return Math.floor(Math.random() * Math.floor(max));
-  }
+}
+
+/*function postCommande () {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", '/server', true);
+}*/

@@ -30,13 +30,7 @@ function renderFurniture (meuble, type) {
     }
 }
 
-function renderRecap(){
-    return `
-    <h3 class="numcde">Votre numéro de commande :${numCommande}</h3>
-    <p class="panier">Vos références commandées :${has('panier')}</p>
-    <p class="livraison">Rappel de vos coordonnées pour la livraison :${has('coordonnees')}</p>
-    `
-}
+
 function displayQtyProduct(){
     if (! has('panier')) {
         return 0;

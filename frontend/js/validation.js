@@ -19,13 +19,16 @@ if (! localStorage.getItem('coordonnees')){
     coordonnees = get('coordonnees');
     console.log(coordonnees);
     document.getElementById('acheter').addEventListener('click', () =>{
-        let commande = "commande numéro "+ numCommande + has('coordonnees') + has('panier');
-        console.log(commande);
+    let commande = "commande numéro "+ numCommande + has('coordonnees') + has('panier');
+    console.log(commande);
+    console.log(typeof commande);
     // post la variable vers le backend
-    
+    let recap = document.getElementById('recap');
+    recap.innerHTML = renderRecap();
+    postCommande();
     })
 }
-document.getElementById('recap').innerHTML = renderRecap();
+
 
 
 function getValue(val){
@@ -36,7 +39,17 @@ function getNumCommande(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-/*function postCommande () {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", '/server', true);
-}*/
+function renderRecap(){
+    return `
+    <h3 class="numCommande">Votre numéro de commande :${numCommande}</h3>
+    <p class="panier">Vos références commandées :${has('panier')}</p>
+    <p class="livraison">Rappel de vos coordonnées pour la livraison :${has('coordonnees')}</p>
+    `
+}
+
+function postCommande () {
+    var request = new XMLHttpRequest();
+    request.open("POST", 'http://localhost:3000/api/order');
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send(JSON.stringify(commande));
+}

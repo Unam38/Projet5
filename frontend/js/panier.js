@@ -29,7 +29,7 @@ if (has('panier')){
                 //ajoute le prix au prixTotal
                 prixTotal = prixTotal + price;
             }
-            console.log(prixTotal);
+            //console.log(prixTotal);
             document.getElementById('prix-total').innerHTML = prixTotal;
         }
         document.getElementById('panier-plein').innerHTML = html;

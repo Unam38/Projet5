@@ -52,49 +52,50 @@
             <form class="accueil-prev__carte-produit" method="POST" id="saisieFormulaire">
                 <div class="form-group">
                     <label for="name">* Nom :</label>
-                    <input type="text" id="name" pattern="[a-zA-ZÀ-ÿ]{1,30}" name="user_name" required>
+                    <input type="text" id="name" pattern="[a-zA-ZÀ-ÿ]{1,30}" name="user_name">
+                    <span id="nom-manquant"></span>
                 </div>
                 <div class="form-group">
                     <label for="firstname">* Prénom :</label>
-                    <input type="text" id="firstname" pattern="[a-zA-ZÀ-ÿ]{1,30}" name="user_firstName" required>
+                    <input type="text" id="firstname" pattern="[a-zA-ZÀ-ÿ]{1,30}" name="user_firstName">
+                    <span id="prenom-manquant"></span>
                 </div>
                 <div class="form-group">
                     <label for="mail">* e-mail :</label>
-                    <input type="email" id="mail" name="user_mail" required>
+                    <input type="email" id="mail" name="user_mail">
+                    <span id="mail-manquant"></span>
                 </div>
                 <div class="form-group">
                     <label for="adress">* Adresse :</label>
-                    <textarea type="text" id="adress" name="user_adress" minlength="5" required></textarea>
+                    <textarea type="text" id="address" name="user_adress" minlength="5"></textarea>
+                    <span id="address-manquant"></span>
                 </div>
                 <div class="form-group">
                     <label for="codePostal">* Code postal :</label>
-                    <input type="text" id="codePostal" pattern="[0-9]{5}" name="user_codePostal" required>
+                    <input type="text" id="codePostal" pattern="[0-9]{5}" name="user_codePostal">
+                    <span id="cp-manquant"></span>
                 </div>
                 <div class="form-group">
                     <label for="ville">* Ville :</label>
-                    <input type="text" id="city" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_city" required>
+                    <input type="text" id="city" pattern="[a-zA-ZÀ-ÿ]{2,30}" name="user_city">
+                    <span id="ville-manquant"></span>
                 </div>
-                <div>
-                    <button class="valid btn btn-warning" id="valid">Validez vos informations</button>
-                </div>
+                <a href="./confirmation.html" title="page de confirmation de commande">
+                    <button class="acheter btn btn-warning" id="acheter">Acheter</button>
+                </a>
             </form>
-            <a href="./confirmation.html" title="page de confirmation de commande">
-                <button class="acheter btn btn-warning" id="acheter">Acheter</button>
-            </a>
         </section>
-
         <footer class="row col-12 bg-success main-footer">
             <a class="wiggle col-6 text-center nav-link text-light" href="mailto:contact@orinico_meubles.fr" target="_blank"><i class="fas fa-envelope"></i>Contactez-nous</a>
             <a class="wiggle col-6 text-center nav-link text-light" href="panier.html">Mon panier<i class="fas fa-shopping-cart"></i></a>
         </footer>
-        
-    
         <!-- Optional JavaScript -->
         <script src="https://kit.fontawesome.com/f6649790d8.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="js/storage.js"></script>
-        <script type="text/javascript" src="js/utils.js"></script>  
+        <script type="text/javascript" src="js/utils.js"></script> 
+        <script type="text/javascript" src="js/validation.js"></script>  
         <script type="text/javascript" src="js/panier.js"></script>
-        <script type="text/javascript" src="js/validation.js"></script>
+        
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

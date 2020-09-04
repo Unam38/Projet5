@@ -96,9 +96,9 @@ body {
 .cartes .card, .articleChoisi .card, .commander .card, .panier-plein .card {
   background: -webkit-gradient(linear, left top, left bottom, from(#6ed85b), color-stop(#1e750e), to(#1e620d));
   background: linear-gradient(#6ed85b, #1e750e, #1e620d);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -216,7 +216,7 @@ body {
 }
 
 #formulaire label {
-  margin-right: 20px;
+  width: 120px;
 }
 
 .main-footer {

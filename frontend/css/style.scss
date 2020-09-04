@@ -54,7 +54,7 @@ body {
     padding: 0;
     .card{
         background: linear-gradient(#6ed85b, #1e750e,#1e620d);
-        display : flex;
+        display : flex !important;
         width: 100%;
         justify-content: center;
         align-items: center;
@@ -129,7 +129,7 @@ body {
         justify-content: space-between;
     }
     label{
-        margin-right: 20px;
+        width: 120px;
     }
 }
 .main-footer {

@@ -40,7 +40,7 @@ function listenAddToCart (article){
        if (canAddToCartButton(article)){
        panier.push(article._id);
        store('panier',panier);
-       displayQtyProduct();
+       displayQtyOfProducts();
     }
     })
 }

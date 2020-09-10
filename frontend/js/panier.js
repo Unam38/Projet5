@@ -28,57 +28,63 @@ if (has('panier')){
 }
 
 function listenForOrderSubmission(){
-    document.getElementById('acheter').addEventListener('click',() =>{  
-        if (isNameValid(getInputValue('name')) 
+    document.getElementById('acheter').addEventListener('click',(e) =>{  
+        e.preventDefault();
+        if (!(isLastNameValid(getInputValue('name')) 
             && isFirstNameValid(getInputValue('firstname'))
             && isAddressValid(getInputValue('address'))
             && isVilleValid(getInputValue('city'))
-            && isMailValid(getInputValue('mail'))){
-                let contact = {
-                    firstName : getInputValue('name'),
-                    lastName : getInputValue('firstname'),
-                    address : getInputValue('address'),
-                    city : getInputValue('city'),
-                    email : getInputValue('mail'),
-                };
-                //console.log(contact);
-                let products = get('panier');
-                //console.log(products);
-                let payload = { contact: contact, products: products };
-                console.log(payload);
-                postCommande(payload);
-                listenForEmptyCart('acheter');
-                getOrderId();
-                console.log(getOrderId());
-        }else{
-            alert("Un champ au moins n'est pas bien rempli");
+            && isMailValid(getInputValue('mail'))))
+        {
+                alert("Un champ au moins n'est pas bien rempli");
+                return;
         }
+        let payload = {
+            contact : {
+            firstName : getInputValue('name'),
+            lastName : getInputValue('firstname'),
+            address : getInputValue('address'),
+            city : getInputValue('city'),
+            email : getInputValue('mail'),
+            },
+            products: get('panier')
+        };
+        postCommande(payload).then((data) =>{
+            clear();
+            let response = JSON.parse(data);
+            store ('response', response);
+            window.location.href="./confirmation.html";
+        });
     })
 }
+
 function listenForEmptyCart(val){
     document.getElementById(val).addEventListener('click', () => {
         clear();
         location.reload();
     });
 }
+
 function getTotal(meubles){
-    //return meubles.reduce((total, element) => {total + element.price});
     let total = 0;
     meubles.forEach((meuble) =>{
-        total += meuble.price;
+        total += meuble.price/100;
     })
     return total;
 }
+
 function displayTotal(total){
-    document.getElementById('prix-total').innerHTML = total;
+    document.getElementById('prix-total').innerHTML = total + `.00`;
 }
+
 function displayProducts(meubles){
     let html=' ';
     meubles.forEach((meuble) =>{
-        html += renderFurniture(meuble, 'single')
+        html += renderFurniture(meuble, 'list')
     })
     document.getElementById('panier-plein').innerHTML = html;
 }
+
 function getMeubles(meubles){
     let list = [];
     let panierIds = get('panier');
@@ -90,34 +96,28 @@ function getMeubles(meubles){
     })
     return list;
 }
+
 function getInputValue(val){
     return document.getElementById(val).value;
 }
 
 function postCommande (payload) {
-    var request = new XMLHttpRequest();
-    request.open("POST", 'http://localhost:3000/api/furniture/order');
-    request.setRequestHeader("Content-Type", "application/json");
-    console.log(payload);
-    request.send(JSON.stringify(payload));
-    let response = postData.text;
-    console.Log(response);
-}
-function getOrderId() {
-    let recap = document.getElementById('recap');
-    fetch('http://localhost:3000/api/furniture/order')
-    .then(response => {
-        if (response.status === 200) {
-        return response.json;
-        }
-    })
-    .then(orderId =>{
-        recap.textContent = orderId;
-        console.log(orderId);
-    })
+    return new Promise((resolve, reject) => {
+        var request = new XMLHttpRequest();
+        request.open("POST", 'http://localhost:3000/api/furniture/order');
+        request.setRequestHeader("Content-Type", "application/json");
+        request.send(JSON.stringify(payload));
+        request.addEventListener("load", function() {
+            if(request.status >=200){
+                resolve(request.responseText);
+            } else {
+                reject(request.statusText);
+            }
+        });
+    });
 }
 
-function isNameValid(nom){
+function isLastNameValid(nom){
     let nomValid = /^[a-zA-Zéèêàçïî]+([-'\s][a-zA-ZéèêîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
     if(nomValid.test(nom)== true){
         document.getElementById('nom-manquant').innerHTML =""

@@ -1,45 +1,55 @@
 function renderFurniture (meuble, type) {
     if (type == 'single') {
-        return `
-        <div class="card img-center text-center text-light">
-            <H2 class="designation">${meuble.name}</h2>
-            <p class="reference">${meuble._id}</p>
-            <img class="image" src=${meuble.imageUrl} alt="photo de meuble" width=200/>
-            <p class="prix">${meuble.price} €</p>
-            <p class="description">${meuble.description}</p>
-            <select class="select">
-                <option>${meuble.varnish[0]}
-                <option>${meuble.varnish[1]}
-                <option>${meuble.varnish[2]}
-            </select>
+        let html = `
+        <div class="col-md-8 text-center">
+            <div class="meuble card text-center">
+                <H2 class="meuble__designation">${meuble.name}</h2>
+                <p class="meuble__reference">${meuble._id}</p>
+                <img class="meuble__image" src=${meuble.imageUrl} alt="photo de meuble" width=200/>
+                <p class="meuble__prix">${meuble.price/100}.00 €</p>
+                <p class="meuble__description">${meuble.description}</p>
+                <select class="meuble__select">
+            `;
+                meuble.varnish.forEach((option) =>{
+                    html += `<option>${option}</option>`;
+                })
+                html += `
+                </select>
+            </div>
         </div>
         `;
+        return html;
     } else {
         return `
-        <div class="card col-10 img-center text-center text-light">
-            <H2 class="designation">${meuble.name}</h2>
-            <p class="reference">${meuble._id}</p>
-            <img class="image" src=${meuble.imageUrl} alt="photo de meuble" width=200/>
-            <p class="prix">${meuble.price} €</p>
-            <a href="article.html?id=${meuble._id}" title="page produit">
-                <button class="commander">
-                    Commander
-                </button>
-            </a>
+        <div class="col-md-4 text-center">
+            <div class="meuble card text-center">
+                <H2 class="meuble__designation">${meuble.name}</h2>
+                <p class="meuble__reference">${meuble._id}</p>
+                <img class="meuble__image" src=${meuble.imageUrl} alt="photo de meuble" width=200/>
+                <p class="meuble__prix">${meuble.price/100}.00 €</p>
+                <a href="article.html?id=${meuble._id}" title="page produit">
+                    <button class="btn-warning commander">
+                        Commander
+                    </button>
+                </a>
+            </div>
         </div>`;
     }
 }
 
-function displayQtyProduct(){
+function countQtyProduct(){
     if (! has('panier')) {
         return 0;
     }
     return get('panier').length;
 }
-document.getElementById('count').textContent = displayQtyProduct();
+
+function displayQtyOfProducts(){
+    document.getElementById('count').textContent = countQtyProduct();
+}
 
 function show(id) {
-    document.getElementById(id).style.display = 'block';
+    document.getElementById(id).style.display = 'flex';
 }
 
 function hide(id){

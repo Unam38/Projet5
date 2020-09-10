@@ -14,7 +14,7 @@
         <title>Ori-Meubles | confirmation</title>
     </head>
     <body>
-        <header class="container col-12 bg-success bandeau_haut">
+        <header class="container col-12 bandeau_haut">
             <nav class="row navbar navbar-expand-md">
                 <img src="../images/chene 2.svg" class="logo" alt="logo de l'entreprise"/>
                 <a class="navbar-brand text-light text-center title" href="index.html" title="accueil">Ori-Meubles</a>
@@ -37,31 +37,28 @@
             </nav>
         </header>
         <section id="confirmation" class="confirmation">
-            <h1>Merci pour votre commande !</h1>
-            <h2>Voici votre récapitulatif :</h2>
+            <div class="confirmation__titre">
+                <h1>Merci pour votre commande !</h1>
+                    <h2>Voici votre récapitulatif :</h2>
+            </div>
             <div id="recap" class="recap">
                 ici sera le récapitulatif de la commande
             </div>
+            <button class="btn-warning quitter" id="quitter">Quitter</button>
         </section>
 
         <footer class="row col-12 bg-success main-footer">
             <a class="wiggle col-6 text-center nav-link text-light" href="mailto:contact@orinico_meubles.fr" target="_blank"><i class="fas fa-envelope"></i>Contactez-nous</a>
             <a class="wiggle col-6 text-center nav-link text-light" href="panier.html">Mon panier<i class="fas fa-shopping-cart"></i></a>
         </footer>
-        
-    
         <!-- Optional JavaScript -->
         <script src="https://kit.fontawesome.com/f6649790d8.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="js/storage.js"></script>
         <script type="text/javascript" src="js/utils.js"></script>
-        <script type="text/javascript" src="js/panier.js"></script>
-        
+        <script type="text/javascript" src="js/confirmation.js"></script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </body>
 </html>

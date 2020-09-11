@@ -5,7 +5,7 @@ function renderFurniture (meuble, type) {
             <div class="meuble card text-center">
                 <H2 class="meuble__designation">${meuble.name}</h2>
                 <p class="meuble__reference">${meuble._id}</p>
-                <img class="meuble__image" src=${meuble.imageUrl} alt="photo de meuble" width=200/>
+                <img class="meuble__image w-75" src=${meuble.imageUrl} alt="photo de meuble"/>
                 <p class="meuble__prix">${meuble.price/100}.00 €</p>
                 <p class="meuble__description">${meuble.description}</p>
                 <select class="meuble__select">
@@ -21,11 +21,11 @@ function renderFurniture (meuble, type) {
         return html;
     } else {
         return `
-        <div class="col-md-4 text-center">
+        <div class="col-md-4 col-lg-6 text-center">
             <div class="meuble card text-center">
                 <H2 class="meuble__designation">${meuble.name}</h2>
                 <p class="meuble__reference">${meuble._id}</p>
-                <img class="meuble__image" src=${meuble.imageUrl} alt="photo de meuble" width=200/>
+                <img class="meuble__image w-75" src=${meuble.imageUrl} alt="photo de meuble"/>
                 <p class="meuble__prix">${meuble.price/100}.00 €</p>
                 <a href="article.html?id=${meuble._id}" title="page produit">
                     <button class="btn-warning commander">

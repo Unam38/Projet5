@@ -6,6 +6,8 @@ body {
     background: linear-gradient(#6ed85b, #1e750e,#1e620d);
 }
 .bandeau_haut {
+    width: 100%;
+    margin:0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -16,37 +18,64 @@ body {
         width: 55px;
         height: 55px;
         margin: 20px 20px 20px 20px;
+        @media screen and (max-width: 479px){
+            width: 30px;
+            height: 30px;
+            margin: 10px 10px 10px 10px;
+        }
     }
     .title {
         font-size: 2.5em;
         font-family: 'Permanent Marker', cursive;
         margin: 10px 20px 10px 20px;
         @include soulignement(lightgrey);
+        @media screen and (max-width: 479px){
+            font-size: 1.2em;
+            margin: 0;
+        }
     }
     .accueil {
         font-size: 1.5em;
         font-family: 'Permanent Marker', cursive;
         margin: 10px 20px 10px 20px;
         @include soulignement(lightgrey);
+        @media screen and (max-width: 479px){
+            font-size: 0.8em;
+            margin: 0;
+        }
     }
     .fas {
         font-size: 1.2em;
         margin: 10px 10px 10px 10px;
+        @media screen and (max-width: 479px){
+            font-size: 0.8em;
+        }
+    }
+    .navbar-toggler{
+        position: fixed;
+        top: 0;
+        right: 0;
     }
 }
 .soustitre-container{
     background-color: rgba(0, 0, 0, 0.253);
     width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    margin-top: 10px;
     .titre {
         font-family: 'Caveat', cursive;
         font-size: 2em;
     }
-    .presentation {
+    p{
         font-family: 'Caveat', cursive;
         font-size: 1.4em;
     }
+}
+.titre{
+    font-family: 'caveat', cursive;
+    color: lightgrey;
+    font-size: 2em;
+    margin-top: 10px;
+   
 }
 .boite{
     margin-bottom: 80px;
@@ -56,8 +85,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-   
-    
+    @media screen and (max-width: 479px){
+        flex-direction: column;
+    }
+    @media screen and (min-width: 480px) and (max-width: 780px){
+        flex-direction: column;
+    }  
     .row{
         justify-content: center;
         align-items: center;
@@ -73,6 +106,17 @@ body {
         border-radius: 40px 0 40px 0;
         font-family: 'caveat', cursive;
         font-size: 1.5em;
+        @media screen and (max-width: 479px){
+            margin-bottom: 70px;
+            h3{
+                font-size: 0;
+            }
+            .fas {
+                font-size: 1.5em;
+                margin: 2px 2px 2px 2px;
+            }
+        }
+
     }
     .meuble{
         background: linear-gradient(#6ed85b, #1e750e,#1e620d);
@@ -115,8 +159,14 @@ body {
     color: lightgrey;
     font-size: 2.5em;
     background-color: transparent;
-}
+    @media screen and (max-width: 479px){
+        font-size: 1.5em;
+    }
+    @media screen and (min-width: 480px) and (max-width: 780px){
+        font-size: 2em;
+    } 
 
+}
 .panier-list {
     display: flex;
     flex-direction: column;
@@ -126,6 +176,12 @@ body {
     font-family: "caveat", cursive;
     color: lightgrey;
     background-color: transparent;
+    @media screen and (max-width: 479px){
+        font-size: 1.5em;
+    }
+    @media screen and (min-width: 480px) and (max-width: 780px){
+        font-size: 2em;
+    }
     a{
         color: lightgrey;
         text-decoration: none;
@@ -133,8 +189,6 @@ body {
         margin-bottom: 100px;
     }
 }
-
-
 #formulaire {
     display: flex;
     justify-content: space-around;
@@ -144,6 +198,22 @@ body {
     font-size: 1.5em;
     padding: 20px 20px 20px 40px;
     margin-bottom: 60px;
+    @media screen and (max-width: 479px){
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+    @media screen and (min-width: 480px) and (max-width: 780px){
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        margin-right: 10%;
+        margin-left: 10%;
+    } 
     .form-group{
         justify-content: space-between;
     }
@@ -153,7 +223,6 @@ body {
     }
     input, textarea{
         width: 200px;
-        border: 2px solid gold;
     }
     input:valid {
         color: green;
@@ -170,6 +239,14 @@ body {
         justify-content: center;
         align-items: center;
         margin-left: 20px;
+        @media screen and (max-width: 479px){
+            margin-left: 0;
+            margin-bottom: 80px;
+        }
+        @media screen and (min-width: 480px) and (max-width: 780px){
+            margin-left: 0;
+            margin-bottom: 80px;
+        } 
         .prix-total {
             display: flex;
             justify-content: center;
@@ -181,6 +258,12 @@ body {
             border: 2px solid lightgrey;
             box-shadow: 5px 5px gold;
             padding: 10px;
+            @media screen and (max-width: 479px){
+                font-size : 1em;
+            }
+            @media screen and (min-width: 480px) and (max-width: 780px){
+                font-size : 1.2em;
+            } 
             span{
                 margin-left: 10px;
                 margin-right: 5px;
@@ -206,7 +289,6 @@ body {
         }
     }
 }
-
 .confirmation{
     display: flex;
     flex-direction: column;
@@ -217,10 +299,22 @@ body {
     margin-bottom: 60px;
     &__titre{
         h1{
-            font-size: 3rem;
+            font-size: 3em;
+            @media screen and (max-width: 479px){
+                font-size: 1.2em;
+            }
+            @media screen and (min-width: 480px) and (max-width: 780px){
+                font-size: 2em;
+            }  
         }
         h2{
-            font-size: 2.5rem;
+            font-size: 2.5em;
+            @media screen and (max-width: 479px){
+                font-size: 1.2em;
+            }
+            @media screen and (min-width: 480px) and (max-width: 780px){
+                font-size: 2em;
+            }    
         }
     }
     .recapitulatif{
@@ -232,8 +326,26 @@ body {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            @media screen and (max-width: 479px){
+                flex-direction: column;
+                align-items: center;
+            }
+            @media screen and (min-width: 480px) and (max-width: 780px){
+                flex-direction: column;
+                align-items: center;
+            }
             &__titre{
                 font-size: 2em;
+                @media screen and (max-width: 479px){
+                    font-size: 1.2em;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+                @media screen and (min-width: 480px) and (max-width: 780px){
+                    font-size: 2em;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
             }
             &__box1{
                 display: flex;
@@ -244,6 +356,12 @@ body {
                 width: 40%;
                 background-color: #a09f9965;
                 color: lightgrey;
+                @media screen and (max-width: 479px){
+                    width: 90%;
+                }
+                @media screen and (min-width: 480px) and (max-width: 780px){
+                    width: 90%;
+                }
                 h4{
                     font-size: 2.5em;
                     font-weight: bold;
@@ -263,6 +381,12 @@ body {
                 width: 40%;
                 background-color: #a09f9965;
                 color: lightgrey;
+                @media screen and (max-width: 479px){
+                    width: 90%;
+                }
+                @media screen and (min-width: 480px) and (max-width: 780px){
+                    width: 90%;
+                }
                 h4{
                     font-size: 2.5em;
                     font-weight: bold;
@@ -292,19 +416,26 @@ body {
     }
     
 }
-
 .main-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 60px;
+    margin:0;
     display: inline-flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     background: linear-gradient(#6ed85b, #1e750e,#1e620d);
+    i{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
     .wiggle {
+        @media screen and (max-width: 750px){
+            font-size: 0.9em;
+         }
         font-family: 'Caveat', cursive;
         font-size: 1.8em;
         @include shake(gold);

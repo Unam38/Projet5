@@ -1,3 +1,5 @@
+displayQtyOfProducts();
+
 fetch (`http://localhost:3000/api/furniture/${getId()}`)
 .then (response => {
     if (response.status === 200) {
@@ -11,6 +13,7 @@ fetch (`http://localhost:3000/api/furniture/${getId()}`)
         document.getElementById('add-cart').disabled = true;
     }
 })
+
 function getId() {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('id');
@@ -21,11 +24,15 @@ function displayChoice(article) {
     articleChoisi.innerHTML = renderFurniture(article, 'single');
 }
 
+function disableButton(id){
+    document.getElementById(id).disabled = true;
+}
+
 function canAddToCartButton(article){
-    if (!has('panier')){
+    if (!Storage.has('panier')){
         return true;
     }
-    if (get('panier').includes(article._id)){
+    if (Storage.get('panier').includes(article._id)){
         return false;
     }
     return true;
@@ -34,13 +41,15 @@ function canAddToCartButton(article){
 function listenAddToCart (article){
     let panier = [];
     document.getElementById('add-cart').addEventListener('click',()=> {
-       if (has('panier')){
-           panier = get('panier');
+       if (Storage.has('panier')){
+           panier = Storage.get('panier');
        }
        if (canAddToCartButton(article)){
        panier.push(article._id);
-       store('panier',panier);
+       Storage.store('panier',panier);
        displayQtyOfProducts();
+       disableButton('add-cart');
+       alert("l'article a bien été ajouté à votre panier, un seul article autorisé...");
     }
     })
 }

@@ -19,6 +19,20 @@ function renderFurniture (meuble, type) {
         </div>
         `;
         return html;
+    } else if (type =='panier'){
+            let html = `
+            <div class="col-md-4 col-lg-6 text-center">
+            <div class="meuble card text-center">
+                <H2 class="meuble__designation">${meuble.name}</h2>
+                <p class="meuble__reference">${meuble._id}</p>
+                <img class="meuble__image w-75" src=${meuble.imageUrl} alt="photo de meuble"/>
+                <p class="meuble__prix">${meuble.price/100}.00 €</p>
+                <button class="btn-warning commander" id="deleteButton-${meuble._id}">
+                    Supprimer du panier
+                </button>
+            </div>
+        </div>`;
+            return html;
     } else {
         return `
         <div class="col-md-4 col-lg-6 text-center">
@@ -38,10 +52,10 @@ function renderFurniture (meuble, type) {
 }
 
 function countQtyProduct(){
-    if (! has('panier')) {
+    if (! Storage.has('panier')) {
         return 0;
     }
-    return get('panier').length;
+    return Storage.get('panier').length;
 }
 
 function displayQtyOfProducts(){

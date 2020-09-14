@@ -1,3 +1,4 @@
+displayQtyOfProducts();
 fetch('http://localhost:3000/api/furniture')
 .then(response => {
     if (response.status === 200) {

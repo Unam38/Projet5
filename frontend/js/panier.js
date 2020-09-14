@@ -1,4 +1,5 @@
-if (has('panier')) {
+displayQtyOfProducts();
+if (Storage.has('panier')) {
     show('panier-plein');
     hide('panier-vide');
 } else{
@@ -7,7 +8,7 @@ if (has('panier')) {
     show('panier-vide');
 }
 
-if (has('panier')){
+if (Storage.has('panier')){
     fetch('http://localhost:3000/api/furniture')
     .then(response => {
         if (response.status === 200) {
@@ -22,9 +23,21 @@ if (has('panier')){
         listenForEmptyCart('vider-panier');
         show('formulaire');
         listenForOrderSubmission();
+        Storage.get('panier').forEach((id) => {
+            listenForProductDeletion(id);
+        })
     })
-    
-    
+}
+
+function listenForProductDeletion(id){
+    document.getElementById('deleteButton-' + id).addEventListener('click', function() {
+        let productsIds = Storage.get('panier');
+        let index = productsIds.findIndex((productId) => id == productId);
+        productsIds.splice(index, 1);
+        Storage.store('panier', productsIds);
+        location.reload();
+        console.log(productsIds.length);
+    })
 }
 
 function listenForOrderSubmission(){
@@ -47,12 +60,12 @@ function listenForOrderSubmission(){
             city : getInputValue('city'),
             email : getInputValue('mail'),
             },
-            products: get('panier')
+            products: Storage.get('panier')
         };
         postCommande(payload).then((data) =>{
-            clear();
+            Storage.clear();
             let response = JSON.parse(data);
-            store ('response', response);
+            Storage.store('order-id', response.orderId);
             window.location.href="./confirmation.html";
         });
     })
@@ -60,7 +73,7 @@ function listenForOrderSubmission(){
 
 function listenForEmptyCart(val){
     document.getElementById(val).addEventListener('click', () => {
-        clear();
+        Storage.clear();
         location.reload();
     });
 }
@@ -80,14 +93,14 @@ function displayTotal(total){
 function displayProducts(meubles){
     let html=' ';
     meubles.forEach((meuble) =>{
-        html += renderFurniture(meuble, 'list')
+        html += renderFurniture(meuble, 'panier')
     })
     document.getElementById('panier-plein').innerHTML = html;
 }
 
 function getMeubles(meubles){
     let list = [];
-    let panierIds = get('panier');
+    let panierIds = Storage.get('panier');
     meubles.forEach((meuble) => {
         let id= meuble._id;
         if (panierIds.includes(id)){

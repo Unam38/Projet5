@@ -38,10 +38,12 @@
         </header>
         <h1 class="votre-panier jumbotron col-12 text-center">Votre panier :</h1>
         <div  class="container product-container panier-plein">
+            <!-- ci-dessous la div pour injecter la liste de produit du panier depuis le javascript cachée si le panier est vide-->
             <div class="row" id="panier-plein">
                 ici seront les produits
             </div>
         </div>
+        <!-- ci-dessous la div panier vide qui sera cachée si le panier est plein-->
         <div class="panier-list" id="panier-vide">
             <p class="text-center">Vous n'avez pas encore fait votre choix</p>
             <a href="./index.html">Regardez notre sélection</a>
@@ -75,7 +77,7 @@
                 </div>
                 
             </form>
-            <div class="total-price">
+            <div class="total-price" id="total-price">
                 <div class="prix-total">Prix total :  <span id="prix-total">0</span> €</div><br/>
                 <button id="vider-panier" class="vider-panier btn">Vider le panier</button>
                 <button type="submit" class="acheter btn" id="acheter">Acheter</button>

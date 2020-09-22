@@ -1,3 +1,8 @@
+/*
+méthode de stockage des données chez le client
+objet qui permet gràce a ses méthodes de modifier et 
+d'intéragir avec le storage
+*/
 const Storage = {
     engine: localStorage,
     has(name) {

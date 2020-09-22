@@ -1,3 +1,4 @@
+//afficher les produits dans le HTML
 function renderFurniture (meuble, type) {
     if (type == 'single') {
         let html = `
@@ -51,6 +52,7 @@ function renderFurniture (meuble, type) {
     }
 }
 
+//compter les articles dans le panier
 function countQtyProduct(){
     if (! Storage.has('panier')) {
         return 0;
@@ -58,14 +60,17 @@ function countQtyProduct(){
     return Storage.get('panier').length;
 }
 
+//afficher le compteur de produits dans le header
 function displayQtyOfProducts(){
     document.getElementById('count').textContent = countQtyProduct();
 }
 
+//fonction montrer un bloc de code html
 function show(id) {
     document.getElementById(id).style.display = 'flex';
 }
 
+//fonction cacher un bloc de code html
 function hide(id){
     document.getElementById(id).style.display = 'none';
 }

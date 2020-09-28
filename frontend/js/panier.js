@@ -13,7 +13,7 @@ if (Storage.has("panier")) {
 }
 
 if (Storage.has("panier")) {
-  fetch("http://localhost:3000/api/furniture")
+  fetch("https://oc-p5-api.herokuapp.com/api/furniture")
     .then((response) => {
       if (response.status === 200) {
         return response.json();
@@ -124,7 +124,7 @@ function getInputValue(id) {
 function postCommande(payload) {
   return new Promise((resolve, reject) => {
     var request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:3000/api/furniture/order");
+    request.open("POST", "https://oc-p5-api.herokuapp.com/api/furniture/order");
     request.setRequestHeader("Content-Type", "application/json");
     request.send(JSON.stringify(payload));
     request.addEventListener("load", function () {

@@ -1,7 +1,7 @@
 displayQtyOfProducts();
 
 //aller chercher dans l'API les données produits
-fetch (`http://localhost:3000/api/furniture/${getId()}`)
+fetch (`https://oc-p5-api.herokuapp.com/api/furniture/${getId()}`)
 .then (response => {
     if (response.status === 200) {
         return response.json();

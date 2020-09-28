@@ -75,7 +75,7 @@ function listenForOrderSubmission() {
       Storage.clear();
       let response = JSON.parse(data);
       Storage.store("order-id", response.orderId);
-      window.location.href = "./confirmation.html";
+      window.location.href = "/frontend/confirmation.html";
     });
   });
 }

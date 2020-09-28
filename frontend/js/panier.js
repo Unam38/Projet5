@@ -34,9 +34,7 @@ if (Storage.has("panier")) {
 }
 
 function listenForProductDeletion(id) {
-  document
-    .getElementById("deleteButton-" + id)
-    .addEventListener("click", function () {
+  document.getElementById("deleteButton-" + id).addEventListener("click", function () {
       let productsIds = Storage.get("panier");
       let index = productsIds.findIndex((productId) => id == productId);
       productsIds.splice(index, 1);
@@ -75,7 +73,7 @@ function listenForOrderSubmission() {
       Storage.clear();
       let response = JSON.parse(data);
       Storage.store("order-id", response.orderId);
-      window.location.href = "../confirmation.html";
+      window.location.replace("./confirmation.html");
     });
   });
 }

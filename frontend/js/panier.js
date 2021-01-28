@@ -73,7 +73,7 @@ function listenForOrderSubmission() {
       Storage.clear();
       let response = JSON.parse(data);
       Storage.store("order-id", response.orderId);
-      window.location.replace("./confirmation.html");
+      window.location.replace("confirmation.html");
     });
   });
 }
